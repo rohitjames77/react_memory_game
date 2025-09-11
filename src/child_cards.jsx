@@ -1,20 +1,19 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-
-
-export function CardOne({srcUrlArr,setSrcUrlArr}) {
+export function CardOne({ srcUrlArr, setSrcUrlArr }) {
   (useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch('https://tenor.googleapis.com/v2/search?q=minecraftstrider&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=2');
-        const returnedResult = await response.json();
-        
-        console.log(returnedResult);
-
-        //  setResults(results.push(returnedResult))
-        //  console.log(results);
+        const promisedResponse = await fetch(
+          'https://tenor.googleapis.com/v2/search?q=minecraftstrider&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=2',
+        );
+        const promisedResult = await promisedResponse.json();
+        console.log(promisedResult);
+return promisedResult;
+        //  setpromisedResults(promisedResults.push(promisedResult))
+        //  console.log(promisedResults);
       } catch (error) {
-        console.log('Error in response : ' + error);
+        console.log('Error in promisedResponse : ' + error);
       }
     };
     fetchImages();
@@ -33,25 +32,24 @@ export function CardOne({srcUrlArr,setSrcUrlArr}) {
   );
 }
 
-export function CardTwo({srcUrlArr,setSrcUrlArr}) {
-
-  useEffect(()=>{
-  const fetchImages = async ()=>{
-      try{
-     const response = await fetch('https://tenor.googleapis.com/v2/search?q=minecraftblaze&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4')
-     const returnedResult = await response.json()
-  
-     console.log(returnedResult);
-  
-    //  setResults(results.push(returnedResult))   
-    //  console.log(results);
-  }catch(error){
-    console.log('Error in response : ' + error);
-  }
-  }
-  fetchImages()
-  }
-  ),[]
+export function CardTwo({ srcUrlArr, setSrcUrlArr }) {
+  (useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const promisedResponse = await fetch(
+          'https://tenor.googleapis.com/v2/search?q=minecraftblaze&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4',
+        );
+        const promisedResult = await promisedResponse.json();
+return promisedResult;
+        //  setpromisedResults(promisedResults.push(promisedResult))
+        //  console.log(promisedResults);
+      } catch (error) {
+        console.log('Error in promisedResponse : ' + error);
+      }
+    };
+    fetchImages();
+  }),
+    []);
   return (
     <>
       <div id="card-2" className="border-2 border-white flex-1 flex flex-col items-center ">
@@ -64,25 +62,24 @@ export function CardTwo({srcUrlArr,setSrcUrlArr}) {
   );
 }
 
-export function CardThree({srcUrlArr,setSrcUrlArr}) {
-
-  useEffect(()=>{
-const fetchImages = async ()=>{
-    try{
-   const response = await fetch('https://tenor.googleapis.com/v2/search?q=minecrafthoglin&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4')
-   const returnedResult = await response.json()
-
-   console.log(returnedResult);
-
-  //  setResults(results.push(returnedResult))   
-  //  console.log(results);
-}catch(error){
-  console.log('Error in response : ' + error);
-}
-}
-fetchImages()
-}
-),[]
+export function CardThree({ srcUrlArr, setSrcUrlArr }) {
+  (useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const promisedResponse = await fetch(
+          'https://tenor.googleapis.com/v2/search?q=minecrafthoglin&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4',
+        );
+        const promisedResult = await promisedResponse.json();
+return promisedResult;
+        //  setpromisedResults(promisedResults.push(promisedResult))
+        //  console.log(promisedResults);
+      } catch (error) {
+        console.log('Error in promisedResponse : ' + error);
+      }
+    };
+    fetchImages();
+  }),
+    []);
   return (
     <>
       <div id="card-3" className="border-2 border-white flex-1 flex flex-col items-center ">
@@ -95,24 +92,25 @@ fetchImages()
   );
 }
 
-export function CardFour({srcUrlArr,setSrcUrlArr}) {
-  useEffect(()=>{
-const fetchImages = async ()=>{
-    try{
-   const response = await fetch('https://tenor.googleapis.com/v2/search?q=minecraftghast&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4')
-   const returnedResult = await response.json()
+export function CardFour({ srcUrlArr, setSrcUrlArr }) {
+  (useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const promisedResponse = await fetch(
+          'https://tenor.googleapis.com/v2/search?q=minecraftghast&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4',
+        );
+        const promisedResult = await promisedResponse.json();
+        return promisedResult;
 
-   console.log(returnedResult);
-
-  //  setResults(results.push(returnedResult))   
-  //  console.log(results);
-}catch(error){
-  console.log('Error in response : ' + error);
-}
-}
-fetchImages()
-}
-),[]
+        //  setpromisedResults(promisedResults.push(promisedResult))
+        //  console.log(promisedResults);
+      } catch (error) {
+        console.log('Error in promisedResponse : ' + error);
+      }
+    };
+    fetchImages();
+  }),
+    []);
   return (
     <>
       <div id="card-4" className="border-2 border-white flex-1 flex flex-col items-center ">
@@ -124,24 +122,25 @@ fetchImages()
     </>
   );
 }
-export function CardFive({srcUrlArr,setSrcUrlArr}) {
-  useEffect(()=>{
-const fetchImages = async ()=>{
-    try{
-   const response = await fetch('https://tenor.googleapis.com/v2/search?q=minecraftzombiepiglin&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4')
-   const returnedResult = await response.json()
+export function CardFive({ srcUrlArr, setSrcUrlArr }) {
+  (useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const promisedResponse = await fetch(
+          'https://tenor.googleapis.com/v2/search?q=minecraftzombiepiglin&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4',
+        );
+        const promisedResult = await promisedResponse.json();
+return promisedResult;
 
-   console.log(returnedResult);
-
-  //  setResults(results.push(returnedResult))   
-  //  console.log(results);
-}catch(error){
-  console.log('Error in response : ' + error);
-}
-}
-fetchImages()
-}
-),[]
+        //  setpromisedResults(promisedResults.push(promisedResult))
+        //  console.log(promisedResults);
+      } catch (error) {
+        console.log('Error in promisedResponse : ' + error);
+      }
+    };
+    fetchImages();
+  }),
+    []);
   return (
     <>
       <div id="card-5" className="border-2 border-white flex-1 flex flex-col items-center ">
@@ -153,23 +152,25 @@ fetchImages()
     </>
   );
 }
-export function CardSix({srcUrlArr,setSrcUrlArr}) {
-  useEffect(()=>{
-const fetchImages = async ()=>{
-    try{
-   const response = await fetch('https://tenor.googleapis.com/v2/search?q=minecraftwitherskeleton&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4')
-  const returnedResult = await response.json()
-   console.log(returnedResult);
+export function CardSix({ srcUrlArr, setSrcUrlArr }) {
+  (useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const promisedResponse = await fetch(
+          'https://tenor.googleapis.com/v2/search?q=minecraftwitherskeleton&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4',
+        );
+        const promisedResult = await promisedResponse.json();
+        return promisedResult;
 
-  //  setResults(results.push(returnedResult))   
-  //  console.log(results);
-}catch(error){
-  console.log('Error in response : ' + error);
-}
-}
-fetchImages()
-}
-),[]
+        //  setpromisedResults(promisedResults.push(promisedResult))
+        //  console.log(promisedResults);
+      } catch (error) {
+        console.log('Error in promisedResponse : ' + error);
+      }
+    };
+    fetchImages();
+  }),
+    []);
   return (
     <>
       <div id="card-6" className="border-2 border-white flex-1 flex flex-col items-center ">
@@ -181,24 +182,25 @@ fetchImages()
     </>
   );
 }
-export function CardSeven({srcUrlArr,setSrcUrlArr}) {
-  useEffect(()=>{
-const fetchImages = async ()=>{
-    try{
-   const response = await fetch('https://tenor.googleapis.com/v2/search?q=minecraftenderman&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4')
-   const returnedResult = await response.json()
+export function CardSeven({ srcUrlArr, setSrcUrlArr }) {
+  (useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const promisedResponse = await fetch(
+          'https://tenor.googleapis.com/v2/search?q=minecraftenderman&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4',
+        );
+        const promisedResult = await promisedResponse.json();
+return promisedResult;
 
-   console.log(returnedResult);
-
-  //  setResults(results.push(returnedResult))   
-  //  console.log(results);
-}catch(error){
-  console.log('Error in response : ' + error);
-}
-}
-fetchImages()
-}
-),[]
+        //  setpromisedResults(promisedResults.push(promisedResult))
+        //  console.log(promisedResults);
+      } catch (error) {
+        console.log('Error in promisedResponse : ' + error);
+      }
+    };
+    fetchImages();
+  }),
+    []);
   return (
     <>
       <div id="card-7" className="border-2 border-white flex-1 flex flex-col items-center ">
@@ -210,24 +212,25 @@ fetchImages()
     </>
   );
 }
-export function CardEight({srcUrlArr,setSrcUrlArr}) {
-  useEffect(()=>{
-const fetchImages = async ()=>{
-    try{
-   const response = await fetch('https://tenor.googleapis.com/v2/search?q=minecraftskeleton&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4')
-   const returnedResult = await response.json()
+export function CardEight({ srcUrlArr, setSrcUrlArr }) {
+  (useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const promisedResponse = await fetch(
+          'https://tenor.googleapis.com/v2/search?q=minecraftskeleton&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4',
+        );
+        const promisedResult = await promisedResponse.json();
+        return promisedResult;
 
-   console.log(returnedResult);
-
-  //  setResults(results.push(returnedResult))   
-  //  console.log(results);
-}catch(error){
-  console.log('Error in response : ' + error);
-}
-}
-fetchImages()
-}
-),[]
+        //  setpromisedResults(promisedResults.push(promisedResult))
+        //  console.log(promisedResults);
+      } catch (error) {
+        console.log('Error in promisedResponse : ' + error);
+      }
+    };
+    fetchImages();
+  }),
+    []);
   return (
     <>
       <div id="card-8" className="border-2 border-white flex-1 flex flex-col items-center ">
