@@ -5,6 +5,32 @@ import { CardOne, CardTwo, CardThree, CardFour, CardFive, CardSix, CardSeven, Ca
 export default function Cards() {
   const [srcUrlArr, setSrcUrlArr] = useState([]);
   const [srcTitleArr, setSrcTitleArr] = useState([]);
+
+  const handleFetchedImg = (newResponse) => {
+    setSrcUrlArr((srcUrlArr) => {
+      if (srcUrlArr.length === 0) {
+        return [...srcUrlArr, newResponse];
+      }
+      if (srcUrlArr.find((element) => element === newResponse)) {
+        return srcUrlArr;
+      }
+      return [...srcUrlArr, newResponse];
+    });
+  };
+
+  const handleFetchedTitle = (newResponse) => {
+    setSrcTitleArr((srcTitleArr) => {
+      if (srcTitleArr.length === 0) {
+        return [...srcTitleArr, newResponse];
+      }
+      if (srcTitleArr.find((element) => element === newResponse)) {
+        return srcTitleArr;
+      }
+
+      return [...srcTitleArr, newResponse];
+    });
+  };
+
   return (
     <div
       id="card-parent-container"
@@ -13,53 +39,53 @@ export default function Cards() {
       <div id="card-container1" className=" flex flex-row flex-1 gap-4">
         <CardOne
           srcUrlArr={srcUrlArr}
-          setSrcUrlArr={setSrcUrlArr}
+          handleFetchedImg={handleFetchedImg}
           srcTitleArr={srcTitleArr}
-          setSrcTitleArr={setSrcTitleArr}
+          handleFetchedTitle={handleFetchedTitle}
         />
         <CardTwo
           srcUrlArr={srcUrlArr}
-          setSrcUrlArr={setSrcUrlArr}
+          handleFetchedImg={handleFetchedImg}
           srcTitleArr={srcTitleArr}
-          setSrcTitleArr={setSrcTitleArr}
+          handleFetchedTitle={handleFetchedTitle}
         />
         <CardThree
           srcUrlArr={srcUrlArr}
-          setSrcUrlArr={setSrcUrlArr}
+          handleFetchedImg={handleFetchedImg}
           srcTitleArr={srcTitleArr}
-          setSrcTitleArr={setSrcTitleArr}
+          handleFetchedTitle={handleFetchedTitle}
         />
         <CardFour
           srcUrlArr={srcUrlArr}
-          setSrcUrlArr={setSrcUrlArr}
+          handleFetchedImg={handleFetchedImg}
           srcTitleArr={srcTitleArr}
-          setSrcTitleArr={setSrcTitleArr}
+          handleFetchedTitle={handleFetchedTitle}
         />
       </div>
       <div id="card-container2" className=" flex flex-row flex-1 gap-4">
         <CardFive
           srcUrlArr={srcUrlArr}
-          setSrcUrlArr={setSrcUrlArr}
+          handleFetchedImg={handleFetchedImg}
           srcTitleArr={srcTitleArr}
-          setSrcTitleArr={setSrcTitleArr}
+          handleFetchedTitle={handleFetchedTitle}
         />
         <CardSix
           srcUrlArr={srcUrlArr}
-          setSrcUrlArr={setSrcUrlArr}
+          handleFetchedImg={handleFetchedImg}
           srcTitleArr={srcTitleArr}
-          setSrcTitleArr={setSrcTitleArr}
+          handleFetchedTitle={handleFetchedTitle}
         />
         <CardSeven
           srcUrlArr={srcUrlArr}
-          setSrcUrlArr={setSrcUrlArr}
+          handleFetchedImg={handleFetchedImg}
           srcTitleArr={srcTitleArr}
-          setSrcTitleArr={setSrcTitleArr}
+          handleFetchedTitle={handleFetchedTitle}
         />
         <CardEight
           srcUrlArr={srcUrlArr}
-          setSrcUrlArr={setSrcUrlArr}
+          handleFetchedImg={handleFetchedImg}
           srcTitleArr={srcTitleArr}
-          setSrcTitleArr={setSrcTitleArr}
+          handleFetchedTitle={handleFetchedTitle}
         />
       </div>
     </div>

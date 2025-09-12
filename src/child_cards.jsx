@@ -1,28 +1,35 @@
 import { useEffect } from 'react';
 
-export function CardOne({ srcUrlArr, setSrcUrlArr, srcTitleArr, setSrcTitleArr }) {
+export function CardOne({ srcUrlArr, handleFetchedImg, srcTitleArr, handleFetchedTitle }) {
   useEffect(() => {
     const fetchImages = async () => {
+      const controller = new AbortController();
+
       try {
         const promisedResponse = await fetch(
           'https://tenor.googleapis.com/v2/search?q=minecraftstrider&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=2',
+          {
+            signal: controller.signal,
+          },
         );
         const promisedResult = await promisedResponse.json();
-      
 
         const imgSrc1 = promisedResult.results[0].media_formats.mediumgif.url;
-        const imgSrcTitle1 = promisedResult.results[0].tags[1].toUpperCase();
-        setSrcUrlArr((srcUrlArr) => [...srcUrlArr, imgSrc1]);
-        setSrcTitleArr((srcTitleArr) => [...srcTitleArr, imgSrcTitle1]);
-      
+        const imgSrcTitle1 = promisedResult.results[0].tags[1]
+        handleFetchedImg(imgSrc1);
+
+        handleFetchedTitle(imgSrcTitle1);
       } catch (error) {
         console.log('Error in promisedResponse: ' + error);
       }
+      return () => {
+        controller.abort();
+      };
     };
 
     fetchImages();
   }, []);
-
+console.log('source array  in card 1 :' + srcUrlArr.length);
   return (
     <>
       <div id="card-1" className="border-2 border-white flex-1 flex flex-col items-center ">
@@ -35,27 +42,40 @@ export function CardOne({ srcUrlArr, setSrcUrlArr, srcTitleArr, setSrcTitleArr }
   );
 }
 
-export function CardTwo({ srcUrlArr, setSrcUrlArr, srcTitleArr, setSrcTitleArr }) {
+export function CardTwo({ srcUrlArr, handleFetchedImg, srcTitleArr, handleFetchedTitle }) {
   useEffect(() => {
+
+
     const fetchImages = async () => {
+     const controller = new AbortController();
       try {
         const promisedResponse = await fetch(
           'https://tenor.googleapis.com/v2/search?q=minecraftblaze&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4',
+          {
+            signal: controller.signal,
+          },
+
+
         );
         const promisedResult = await promisedResponse.json();
 
         const imgSrc2 = promisedResult.results[0].media_formats.mediumgif.url;
-        const imgSrcTitle2 = promisedResult.results[0].tags[0].toUpperCase();
-        setSrcUrlArr((srcUrlArr) => [...srcUrlArr, imgSrc2]);
-        setSrcTitleArr((srcTitleArr) => [...srcTitleArr, imgSrcTitle2]);
-      
+        const imgSrcTitle2 = promisedResult.results[0].tags[0]
+        handleFetchedImg(imgSrc2);
+        handleFetchedTitle(imgSrcTitle2);
       } catch (error) {
         console.log('Error in promisedResponse : ' + error);
       }
+      return () => {
+        controller.abort();
+      };
     };
+
+
+
     fetchImages();
   }, []);
-
+  console.log('source array  in card2' + srcUrlArr.length);
   return (
     <>
       <div id="card-2" className="border-2 border-white flex-1 flex flex-col items-center  ">
@@ -68,25 +88,37 @@ export function CardTwo({ srcUrlArr, setSrcUrlArr, srcTitleArr, setSrcTitleArr }
   );
 }
 
-export function CardThree({ srcUrlArr, setSrcUrlArr, srcTitleArr, setSrcTitleArr }) {
+export function CardThree({ srcUrlArr, handleFetchedImg, srcTitleArr, handleFetchedTitle }) {
   useEffect(() => {
     const fetchImages = async () => {
+       const controller = new AbortController();
       try {
         const promisedResponse = await fetch(
           'https://tenor.googleapis.com/v2/search?q=hoglin&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4',
+          {
+            signal: controller.signal,
+          },
+
+
         );
         const promisedResult = await promisedResponse.json();
         const imgSrc3 = promisedResult.results[1].media_formats.mediumgif.url;
-        const imgSrcTitle3 = promisedResult.results[1].tags[1].toUpperCase();
-        setSrcUrlArr((srcUrlArr) => [...srcUrlArr, imgSrc3]);
-        setSrcTitleArr((srcTitleArr) => [...srcTitleArr, imgSrcTitle3]);
-
+        const imgSrcTitle3 = promisedResult.results[1].tags[1]
+        handleFetchedImg(imgSrc3);
+        handleFetchedTitle(imgSrcTitle3);
       } catch (error) {
         console.log('Error in promisedResponse : ' + error);
       }
+      return () => {
+        controller.abort();
+      };
+
+
     };
     fetchImages();
   }, []);
+
+  console.log('source array  in card3' + srcUrlArr.length);
   return (
     <>
       <div id="card-3" className="border-2 border-white flex-1 flex flex-col items-center ">
@@ -99,26 +131,37 @@ export function CardThree({ srcUrlArr, setSrcUrlArr, srcTitleArr, setSrcTitleArr
   );
 }
 
-export function CardFour({ srcUrlArr, setSrcUrlArr, srcTitleArr, setSrcTitleArr }) {
+export function CardFour({ srcUrlArr, handleFetchedImg, srcTitleArr, handleFetchedTitle }) {
+  
   useEffect(() => {
     const fetchImages = async () => {
+   const controller = new AbortController();
       try {
         const promisedResponse = await fetch(
           'https://tenor.googleapis.com/v2/search?q=ghast&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4',
+          {
+            signal: controller.signal,
+          },
+
+
         );
         const promisedResult = await promisedResponse.json();
         const imgSrc4 = promisedResult.results[0].media_formats.mediumgif.url;
-        const imgSrcTitle4 = promisedResult.results[0].tags[1].toUpperCase();
-        setSrcUrlArr((srcUrlArr) => [...srcUrlArr, imgSrc4]);
-        setSrcTitleArr((srcTitleArr) => [...srcTitleArr, imgSrcTitle4]);
-
+        const imgSrcTitle4 = promisedResult.results[0].tags[1]
+        handleFetchedImg(imgSrc4);
+        handleFetchedTitle(imgSrcTitle4);
       } catch (error) {
         console.log('Error in promisedResponse : ' + error);
       }
+      return () => {
+        controller.abort();
+      };
+
+
     };
     fetchImages();
   }, []);
-
+  console.log('source array  in card4' + srcUrlArr.length);
   return (
     <>
       <div id="card-4" className="border-2 border-white flex-1 flex flex-col items-center ">
@@ -130,24 +173,39 @@ export function CardFour({ srcUrlArr, setSrcUrlArr, srcTitleArr, setSrcTitleArr 
     </>
   );
 }
-export function CardFive({ srcUrlArr, setSrcUrlArr, srcTitleArr, setSrcTitleArr }) {
+export function CardFive({ srcUrlArr, handleFetchedImg, srcTitleArr, handleFetchedTitle }) {
   useEffect(() => {
     const fetchImages = async () => {
+       const controller = new AbortController();
       try {
         const promisedResponse = await fetch(
           'https://tenor.googleapis.com/v2/search?q=witherstorm&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4',
+          {
+            signal: controller.signal,
+          },
+
+
         );
         const promisedResult = await promisedResponse.json();
         const imgSrc5 = promisedResult.results[2].media_formats.mediumgif.url;
-        const imgSrcTitle5 = promisedResult.results[2].tags[0].toUpperCase();
-        setSrcUrlArr((srcUrlArr) => [...srcUrlArr, imgSrc5]);
-        setSrcTitleArr((srcTitleArr) => [...srcTitleArr, imgSrcTitle5]);
+        const imgSrcTitle5 = promisedResult.results[2].tags[0]
+        handleFetchedImg(imgSrc5);
+        handleFetchedTitle(imgSrcTitle5);
       } catch (error) {
         console.log('Error in promisedResponse : ' + error);
       }
+
+      return () => {
+        controller.abort();
+      };
+
+
+
     };
     fetchImages();
   }, []);
+  console.log('source array  in card 5' + srcUrlArr.length);
+
   return (
     <>
       <div id="card-5" className="border-2 border-white flex-1 flex flex-col items-center ">
@@ -159,25 +217,38 @@ export function CardFive({ srcUrlArr, setSrcUrlArr, srcTitleArr, setSrcTitleArr 
     </>
   );
 }
-export function CardSix({ srcUrlArr, setSrcUrlArr, srcTitleArr, setSrcTitleArr }) {
-useEffect(() => {
+export function CardSix({ srcUrlArr, handleFetchedImg, srcTitleArr, handleFetchedTitle }) {
+  useEffect(() => {
     const fetchImages = async () => {
+      const controller = new AbortController();
       try {
         const promisedResponse = await fetch(
           'https://tenor.googleapis.com/v2/search?q=minecraftwarden&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4',
+          {
+            signal: controller.signal,
+          },
+
+
         );
         const promisedResult = await promisedResponse.json();
         const imgSrc6 = promisedResult.results[1].media_formats.mediumgif.url;
-        const imgSrcTitle6 = promisedResult.results[0].tags[0].toUpperCase();
-        setSrcUrlArr((srcUrlArr) => [...srcUrlArr, imgSrc6]);
-        setSrcTitleArr((srcTitleArr) => [...srcTitleArr, imgSrcTitle6]);
+        const imgSrcTitle6 = promisedResult.results[0].tags[0]
+        handleFetchedImg(imgSrc6);
+        handleFetchedTitle(imgSrcTitle6);
       } catch (error) {
         console.log('Error in promisedResponse : ' + error);
       }
+      return () => {
+        controller.abort();
+      };
+
+
+
     };
     fetchImages();
-  },
-    []);
+  }, []);
+
+  console.log('source array  in card 6' + srcUrlArr.length);
   return (
     <>
       <div id="card-6" className="border-2 border-white flex-1 flex flex-col items-center ">
@@ -189,26 +260,38 @@ useEffect(() => {
     </>
   );
 }
-export function CardSeven({ srcUrlArr, setSrcUrlArr, srcTitleArr, setSrcTitleArr }) {
+export function CardSeven({ srcUrlArr, handleFetchedImg, srcTitleArr, handleFetchedTitle }) {
   useEffect(() => {
     const fetchImages = async () => {
+      const controller = new AbortController();
       try {
         const promisedResponse = await fetch(
           'https://tenor.googleapis.com/v2/search?q=minecraftenderman&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4',
+          {
+            signal: controller.signal,
+          },
+
+
         );
         const promisedResult = await promisedResponse.json();
-         const imgSrc7 = promisedResult.results[0].media_formats.mediumgif.url;
-        const imgSrcTitle7 = promisedResult.results[0].tags[0].toUpperCase();
-        setSrcUrlArr((srcUrlArr) => [...srcUrlArr, imgSrc7]);
-        setSrcTitleArr((srcTitleArr) => [...srcTitleArr, imgSrcTitle7]);
-
-           } catch (error) {
+        const imgSrc7 = promisedResult.results[0].media_formats.mediumgif.url;
+        const imgSrcTitle7 = promisedResult.results[0].tags[0]
+        handleFetchedImg(imgSrc7);
+        handleFetchedTitle(imgSrcTitle7);
+      } catch (error) {
         console.log('Error in promisedResponse : ' + error);
       }
+      return () => {
+        controller.abort();
+      };
+
+
+
     };
     fetchImages();
-  },
-    []);
+  }, []);
+
+  console.log('source array  in card7' + srcUrlArr.length);
   return (
     <>
       <div id="card-7" className="border-2 border-white flex-1 flex flex-col items-center ">
@@ -220,25 +303,38 @@ export function CardSeven({ srcUrlArr, setSrcUrlArr, srcTitleArr, setSrcTitleArr
     </>
   );
 }
-export function CardEight({ srcUrlArr, setSrcUrlArr, srcTitleArr, setSrcTitleArr }) {
+export function CardEight({ srcUrlArr, handleFetchedImg, srcTitleArr, handleFetchedTitle }) {
   useEffect(() => {
     const fetchImages = async () => {
+       const controller = new AbortController();
       try {
         const promisedResponse = await fetch(
           'https://tenor.googleapis.com/v2/search?q=minecraftcreeper&key=AIzaSyDzHHxZeWLb7pVTml_arg_-qAvqqba7XL4&limit=4',
+          {
+            signal: controller.signal,
+          },
+
+
         );
         const promisedResult = await promisedResponse.json();
-         const imgSrc8 = promisedResult.results[0].media_formats.mediumgif.url;
-        const imgSrcTitle8 = promisedResult.results[0].tags[0].toUpperCase();
-        setSrcUrlArr((srcUrlArr) => [...srcUrlArr, imgSrc8]);
-        setSrcTitleArr((srcTitleArr) => [...srcTitleArr, imgSrcTitle8]);
+        const imgSrc8 = promisedResult.results[0].media_formats.mediumgif.url;
+        const imgSrcTitle8 = promisedResult.results[0].tags[0]
+        handleFetchedImg(imgSrc8);
+        handleFetchedTitle(imgSrcTitle8);
       } catch (error) {
         console.log('Error in promisedResponse : ' + error);
       }
+      return () => {
+        controller.abort();
+      };
+
+
     };
     fetchImages();
-  },
-    []);
+  }, [handleFetchedImg,handleFetchedTitle]);
+
+  console.log('source array  in card 8' + srcUrlArr.length);
+
   return (
     <>
       <div id="card-8" className="border-2 border-white flex-1 flex flex-col items-center ">
