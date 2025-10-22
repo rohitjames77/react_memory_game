@@ -12,7 +12,12 @@ export default defineConfig([
       js.configs.recommended,
       reactHooks.configs['recommended-latest'],
       reactRefresh.configs.vite,
+      "plugin:jest/recommended"
     ],
+     "plugins": ["jest"],
+  "env": {
+    "jest": true
+  },
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
